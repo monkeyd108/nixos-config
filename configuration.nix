@@ -10,6 +10,9 @@
       ./hardware-configuration.nix
     ];
 
+	# Enable flakes and new commands
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -97,6 +100,7 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+		git # git is a dependency for nix flakes 
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
