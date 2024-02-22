@@ -112,6 +112,9 @@
   #   enableSSHSupport = true;
   # };
 
+  # Should be enabled when using dconf from home-manager
+  programs.dconf.enable = true;
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

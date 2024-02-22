@@ -9,10 +9,12 @@
     username = "naveen";
     homeDirectory = "/home/naveen";
 
-    packages = with pkgs;
-      [
-
-      ];
+    packages = with pkgs; [ thunderbird ];
   };
 
+  dconf.settings = {
+    "org/gnome/mutter" = {
+      experimental-features = [ "scale-monitor-framebuffer" ];
+    };
+  };
 }
