@@ -8,11 +8,12 @@
 
     # Add and exclude packages 
     environment.systemPackages = with pkgs; [
+      blackbox-terminal
       adw-gtk3
       gnome.gnome-tweaks
       gnomeExtensions.legacy-gtk3-theme-scheme-auto-switcher
     ];
-    environment.gnome.excludePackages = (with pkgs; [ gnome-tour ])
+    environment.gnome.excludePackages = (with pkgs; [ gnome-tour gnome-console ])
       ++ (with pkgs.gnome; [ epiphany gnome-software geary yelp ]);
 
     programs.dconf = {
