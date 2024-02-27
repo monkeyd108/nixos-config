@@ -10,9 +10,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }: {
+  outputs = {
+    self,
+    nixpkgs,
+    nixos-hardware,
+    home-manager,
+    ...
+  }: let
+    system = "x86_64-linux";
+  in {
+    formatter."${system}" = nixpkgs.legacyPackages."${system}".alejandra;
     nixosConfigurations.fw13-amd = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       modules = [
         nixos-hardware.nixosModules.framework-13-7040-amd
         home-manager.nixosModules.home-manager

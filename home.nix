@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-  # Let home-manager install and manage itself	
+  config,
+  pkgs,
+  ...
+}: {
+  # Let home-manager install and manage itself
   programs.home-manager.enable = true;
 
   home = {
@@ -9,7 +11,6 @@
     username = "naveen";
     homeDirectory = "/home/naveen";
 
-    packages = with pkgs; [ thunderbird ];
+    packages = with pkgs; [thunderbird];
   };
-
 }
