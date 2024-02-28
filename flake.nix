@@ -34,6 +34,7 @@
         }
         ./configuration.nix
         ./modules/gnome.nix
+        ./modules/gdm.nix
       ];
     };
   };

@@ -1,9 +1,12 @@
-{pkgs, ...}: {
+{
+  config,
+  options,
+  pkgs,
+  ...
+}: {
   config = {
-    # Enable GNOME and GDM
-    services.xserver.displayManager.gdm.enable = true;
+    # Enable GNOME
     services.xserver.desktopManager.gnome.enable = true;
-
     # Add and exclude packages
     environment.systemPackages = with pkgs; [
       blackbox-terminal
@@ -32,6 +35,7 @@
             "org/gnome/shell" = {
               enabled-extensions = ["legacyschemeautoswitcher@joshimukul29.gmail.com"];
             };
+            "org/gnome/settings-daemon/plugins/power".ambient-enabled = false;
           };
         }
       ];
